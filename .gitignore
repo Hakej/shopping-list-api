@@ -1,5 +1,5 @@
 # compiled output
-/dist
+#/dist # https://dev.to/thejscode/deploying-nestjs-application-easy-and-explained-11cm
 /node_modules
 
 # Logs
