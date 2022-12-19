@@ -2,7 +2,7 @@
   "name": "shopping-list-api",
   "version": "0.0.1",
   "engines": {
-    "node": "16.x"
+    "node": "16.16.0"
   },
   "description": "",
   "author": "",
@@ -12,7 +12,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "node dist/main.js",
+    "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

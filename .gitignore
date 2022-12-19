@@ -1,5 +1,5 @@
 # compiled output
-#/dist # https://dev.to/thejscode/deploying-nestjs-application-easy-and-explained-11cm
+/dist
 /node_modules
 
 # Logs
@@ -33,3 +33,5 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+/*.env
