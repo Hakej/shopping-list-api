@@ -27,13 +27,14 @@ export class AppService {
     return newItem;
   }
 
-  checkItem(id: string, isChecked: boolean) {
+  checkItem(id: string, isChecked: boolean): Item{
     const indexOfItemToCheck = this.items.findIndex((item) => item.id === id);
 
     if (indexOfItemToCheck === -1) {
-      this.returnBadRequestError(`There's no item of id "${id}".`)
+      this.returnBadRequestError(`There's no item of id "${id}".`);
     }
-    this.items[indexOfItemToCheck].isChecked = isChecked
+    this.items[indexOfItemToCheck].isChecked = isChecked;
+    return this.items[indexOfItemToCheck];
   }
 
   deleteCheckedItems(): Item[] {

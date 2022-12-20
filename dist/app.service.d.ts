@@ -4,7 +4,7 @@ export declare class AppService {
     items: Item[];
     getItems(): Item[];
     postItem(itemDto: ItemDto): Item;
-    checkItem(id: string, isChecked: boolean): void;
+    checkItem(id: string, isChecked: boolean): Item;
     deleteCheckedItems(): Item[];
     returnBadRequestError(message: string): void;
 }

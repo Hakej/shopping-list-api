@@ -22,13 +22,14 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    getHello() {
+    getItems() {
         return this.appService.getItems();
     }
     postItem(itemDto) {
         return this.appService.postItem(itemDto);
     }
-    checkItem(id, isChecked) {
+    checkItem(id, isCheckedVal) {
+        const isChecked = isCheckedVal === 'true';
         return this.appService.checkItem(id, isChecked);
     }
     deleteCheckedItems() {
@@ -39,8 +40,8 @@ __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Object)
-], AppController.prototype, "getHello", null);
+    __metadata("design:returntype", Array)
+], AppController.prototype, "getItems", null);
 __decorate([
     (0, decorators_1.Post)(),
     __param(0, (0, decorators_1.Body)()),
@@ -53,8 +54,8 @@ __decorate([
     __param(0, (0, decorators_1.Param)('id')),
     __param(1, (0, decorators_1.Param)('isChecked')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Boolean]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", Item_1.Item)
 ], AppController.prototype, "checkItem", null);
 __decorate([
     (0, decorators_1.Delete)('deleteCheckedItems'),

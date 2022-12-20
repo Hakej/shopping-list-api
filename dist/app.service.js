@@ -38,6 +38,7 @@ let AppService = class AppService {
             this.returnBadRequestError(`There's no item of id "${id}".`);
         }
         this.items[indexOfItemToCheck].isChecked = isChecked;
+        return this.items[indexOfItemToCheck];
     }
     deleteCheckedItems() {
         this.items = this.items.filter(item => !item.isChecked);

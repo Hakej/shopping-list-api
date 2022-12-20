@@ -4,8 +4,8 @@ import { ItemDto } from './classes/Itemdto';
 export declare class AppController {
     private readonly appService;
     constructor(appService: AppService);
-    getHello(): object;
+    getItems(): Item[];
     postItem(itemDto: ItemDto): Item;
-    checkItem(id: string, isChecked: boolean): void;
+    checkItem(id: string, isCheckedVal: string): Item;
     deleteCheckedItems(): Item[];
 }

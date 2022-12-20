@@ -9,7 +9,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): object {
+  getItems(): Item[] {
     return this.appService.getItems();
   }
 
@@ -19,7 +19,8 @@ export class AppController {
   }
 
   @Put('checkItem/:id/:isChecked')
-  checkItem(@Param('id') id: string, @Param('isChecked') isChecked: boolean) {
+  checkItem(@Param('id') id: string, @Param('isChecked') isCheckedVal: string): Item {
+    const isChecked = isCheckedVal === 'true';
     return this.appService.checkItem(id, isChecked);
   }
 
