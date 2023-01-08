@@ -8,15 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
+const typeorm_1 = require("@nestjs/typeorm");
+const item_entity_1 = require("./Item/item.entity");
+const items_controller_1 = require("./Item/items.controller");
+const items_module_1 = require("./Item/items.module");
+const items_service_1 = require("./Item/items.service");
+const ShoppingList_controller_1 = require("./ShoppingList/ShoppingList.controller");
+const ShoppingList_entity_1 = require("./ShoppingList/ShoppingList.entity");
+const ShoppingList_module_1 = require("./ShoppingList/ShoppingList.module");
+const ShoppingList_service_1 = require("./ShoppingList/ShoppingList.service");
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [
+            typeorm_1.TypeOrmModule.forRoot({
+                type: 'mysql',
+                host: process.env.DATABASE_HOST,
+                port: 3306,
+                username: process.env.DATABASE_USERNAME,
+                password: process.env.DATABASE_PASSWORD,
+                database: process.env.DATABASE_NAME,
+                entities: [item_entity_1.Item, ShoppingList_entity_1.ShoppingList],
+                synchronize: true,
+                autoLoadEntities: true,
+            }),
+            items_module_1.ItemsModule,
+            ShoppingList_module_1.ShoppingListModule
+        ],
+        providers: [items_service_1.ItemsService, ShoppingList_service_1.ShoppingListService],
+        controllers: [items_controller_1.ItemsController, ShoppingList_controller_1.ShoppingListController]
     })
 ], AppModule);
 exports.AppModule = AppModule;
