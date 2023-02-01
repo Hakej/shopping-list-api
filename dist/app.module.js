@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const Events_module_1 = require("./Events/Events.module");
 const items_controller_1 = require("./Item/items.controller");
 const items_module_1 = require("./Item/items.module");
 const items_service_1 = require("./Item/items.service");
@@ -29,7 +30,8 @@ AppModule = __decorate([
                 synchronize: true,
             }),
             items_module_1.ItemsModule,
-            ShoppingList_module_1.ShoppingListModule
+            ShoppingList_module_1.ShoppingListModule,
+            Events_module_1.EventsModule
         ],
         providers: [items_service_1.ItemsService, ShoppingList_service_1.ShoppingListService],
         controllers: [items_controller_1.ItemsController, ShoppingList_controller_1.ShoppingListController]
